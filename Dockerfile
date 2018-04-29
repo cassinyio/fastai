@@ -71,4 +71,4 @@ COPY start-notebook.sh /usr/local/bin/start-notebook.sh
 RUN chmod +x /usr/local/bin/start-notebook.sh
 
 # Switch back to user
-#USER $NB_USER
+USER $NB_USER
