@@ -54,7 +54,7 @@ RUN cd /tmp && \
 WORKDIR /home/$NB_USER/
 COPY requirements.txt $HOME/requirements.txt
 RUN git clone https://github.com/fastai/fastai.git
-RUN cd fastai && conda env update && conda clean -tipsy
+RUN cd fastai && conda env update --quiet && conda clean -tipsy
 RUN pip install --no-cache-dir -r $HOME/requirements.txt
 RUN rm $HOME/requirements.txt
 
