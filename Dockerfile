@@ -57,6 +57,12 @@ RUN git clone https://github.com/fastai/fastai.git
 RUN cd fastai && conda env update --quiet && conda clean -tipsy
 RUN pip install --no-cache-dir -r $HOME/requirements.txt
 RUN rm $HOME/requirements.txt
+# pull the data
+RUN mkdir -p fastai/courses/dl1/data && \
+    cd fastai/courses/dl1/data && \
+    wget --quiet http://files.fast.ai/data/dogscats.zip  && \
+    unzip -q dogscats.zip && \
+    rm dogscats.zip
 
 USER root
 EXPOSE 8888
